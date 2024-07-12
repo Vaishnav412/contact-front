@@ -1,0 +1,75 @@
+<div class=" m-auto mt-5" style="width: 40%;">
+  <div class="title d-flex justify-content-between">
+
+    <h1>Add New Contacts</h1>
+
+
+
+</div>
+  <!-- name -->
+  <form #addcontactForm="ngForm">
+    <div class="form-floating mb-3">
+      <input type="text" #name="ngModel"  [(ngModel)]="contact.name" name="name" class="form-control" id="floatingInputName" placeholder="Username" required pattern="[a-zA-Z ]*">
+      <label for="floatingInputName">Name</label>
+    </div>
+    <!-- error div for username -->
+ 
+    <div *ngIf="name.invalid&&name.touched" class="mb-3 text-danger">Invalid Username</div>
+
+    <!-- email -->
+    <div class="form-floating mb-3">
+      <input type="email" #email="ngModel" [(ngModel)]="contact.email" name="email" class="form-control" id="floatingEmail" placeholder="name@example.com" required email>
+      <label for="floatingEmail">Email address</label>
+    </div>
+     <!-- error div for email id -->
+ 
+     <div *ngIf="email.invalid&&email.touched" class="mb-3 text-danger">Invalid Email Id</div>
+
+    <!-- photo -->
+  
+    <div class="form-floating mb-3">
+  
+      <label for="floatingPhoto"></label>
+
+      <input placeholder="copy url" type="url" class="form-control" [(ngModel)]="contact.photo" name="photo" required id="floatingPhoto">
+  
+  
+    </div>
+  
+    <!-- mobile -->
+    <div class="form-floating mb-3">
+      <input type="phone" #mobile="ngModel" [(ngModel)]="contact.mobile" name="mobile" class="form-control" id="floatingInputMobile" placeholder="Mobile number" required pattern="[0-9]*">
+      <label for="floatingInputMobile">Mobile number</label>
+    </div>
+     <!-- error div for mobile -->
+ 
+     <div *ngIf="mobile.invalid&&mobile.touched" class="mb-3 text-danger">Invalid Mobile Number</div>
+    <!-- company name -->
+    <div class="form-floating mb-3">
+      <input type="text" #company="ngModel" [(ngModel)]="contact.company" name="company" class="form-control" id="floatingInputComapany" placeholder="Company Name" required pattern="[a-zA-Z ]*">
+      <label for="floatingInputComapany">Company name</label>
+    </div>
+     <!-- error div for Company name -->
+ 
+     <div *ngIf="company.invalid&&company.touched" class="mb-3 text-danger">Invalid Company Name</div>
+  
+  
+    <!-- title (category) -->
+    <div class="form-floating mb-3">
+      <input type="text" #title="ngModel" [(ngModel)]="contact.title" name="title" class="form-control" id="floatingInputTitle" placeholder="title" required pattern="[a-zA-Z ]*">
+      <label for="floatingInputTitle">title</label>
+    </div>
+     <!-- error div for title -->
+ 
+     <div *ngIf="title.invalid&&title.touched" class="mb-3 text-danger">Invalid Title</div>
+  
+    <div class="form-floating mb-3 d-flex justify-content-center">
+      <button routerLink="" class="btn btn-warning" style="color: white; background: rgb(165,195,216);
+          background: linear-gradient(109deg, rgba(165,195,216,1) 28%, rgba(213,211,32,1) 71%);">Cancel</button>
+      <button (click)="saveContact()" [disabled]="addcontactForm.invalid" class="btn  ms-5" style="color: white; background: rgb(246,24,204);
+          background: linear-gradient(109deg, rgba(246,24,204,1) 19%, rgba(59,156,172,1) 88%);">Save</button>
+    </div>
+  
+  </form>
+
+</div>
